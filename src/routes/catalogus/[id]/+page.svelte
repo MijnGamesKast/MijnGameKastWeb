@@ -2,5 +2,7 @@
 	let { data } = $props();
 </script>
 
-<h1>Game detail</h1>
+<h2>Game detail</h2>
 <p>ID: {data.gameId}</p>
+
+<a href="/catalogus/{data.gameId}/toevoegen-aan-collectie">Toevoegen aan collectie</a>

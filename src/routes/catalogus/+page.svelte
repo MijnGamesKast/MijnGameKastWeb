@@ -1,4 +1,4 @@
-<h1>Catalogus pagina</h1>
+<h2>Catalogus pagina</h2>
 <p>Op deze pagina komen alle games te staan van de catalogus</p>
 
 <a href="/catalogus/1">Catalogus item 1</a><br>
