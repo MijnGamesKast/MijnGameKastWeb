@@ -1,6 +1,29 @@
-<h2>Catalogus pagina</h2>
-<p>Op deze pagina komen alle games te staan van de catalogus</p>
+<script lang="ts">
+  import logo from '$lib/images/GameCoverPlaceholder.jpg'
+	let { data } = $props();
+</script>
 
-<a href="/catalogus/1">Catalogus item 1</a><br>
-<a href="/catalogus/2">Catalogus item 2</a><br>
-<a href="/catalogus/3">Catalogus item 3</a><br>
+<div id="catalogWrapper">
+	<h2>Catalogus pagina</h2>
+	<p>Op deze pagina komen alle games te staan van de catalogus</p>
+	<a href="/catalogus/nieuw">Game toevoegen</a>
+
+	<br>
+
+	{#if data.catalog?.length}
+		<div class="game-list">
+			{#each data.catalog as game}
+				<div class="game-card">
+					<img src={logo} alt="Een placeholder image voor gamecover">
+					<h3>{game.title}</h3>
+					<p>{game.description}</p>
+					<a href="/catalogus/{game.id}">Bekijk details</a>
+					<a href="/catalogus/{game.id}/toevoegen-aan-collectie">Toevoegen aan collectie</a>
+
+				</div>
+			{/each}
+		</div>
+	{:else}
+		<p>Geen games gevonden.</p>
+	{/if}
+</div>
