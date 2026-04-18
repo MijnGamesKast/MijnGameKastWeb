@@ -1,0 +1,104 @@
+@use 'variables' as colour;
+
+header {
+    background: colour.$header-bg-color;
+    color: colour.$header-text-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 20px;
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        height: 24px;
+        justify-content: center;
+        cursor: pointer;
+
+        span {
+            height: 3px;
+            width: 25px;
+            background-color: colour.$header-text-color;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    nav {
+        position: fixed;
+        inset: 60px 0 0 0;
+        background-color: colour.$header-bg-color;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+
+        display: flex;
+        flex-direction: column;
+
+        ul {
+            margin-top: 20px;
+            display: flex;
+            gap: 25px;
+            flex-direction: column;
+            background: transparent;
+            text-align: center;
+
+            li {
+                list-style-type: none;
+
+                a {
+                    color: colour.$header-text-color;
+                    font-size: 1.5rem;
+                    transition: all 0.2s ease-in-out;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: colour.$header-text-color-hover;
+                    }
+                }
+
+            }
+        }
+    }
+
+    #menu-toggle:checked ~ nav {
+        transform: translateX(0);
+    }
+
+    #menu-toggle:checked ~ label .line1 {
+        transform: rotate(-45deg) translate(-4.25px, 4.25px);
+    }
+    #menu-toggle:checked ~ label .line2 {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ label .line3 {
+        transform: rotate(45deg) translate(-4.25px, -4.25px);
+    }
+}
+
+@media (min-width: 950px) {
+    header {
+        .hamburger {
+            display: none;
+        }
+
+        nav {
+            position: static;
+            transform: translateX(0);
+
+            .header-footer {
+                display: none;
+            }
+
+            ul {
+                margin-top: 0;
+                flex-direction: row;
+            }
+        }
+    }
+}

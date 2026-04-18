@@ -1,0 +1,140 @@
+/** HEADER **/
+/** MAIN **/
+/** FOOTER **/
+header {
+  background: #0F172A;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 20px;
+}
+header .menu-toggle {
+  display: none;
+}
+header .hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  height: 24px;
+  justify-content: center;
+  cursor: pointer;
+}
+header .hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: #FFFFFF;
+  transition: all 0.3s ease-in-out;
+}
+header nav {
+  position: fixed;
+  inset: 60px 0 0 0;
+  background-color: #0F172A;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+header nav ul {
+  margin-top: 20px;
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  background: transparent;
+  text-align: center;
+}
+header nav ul li {
+  list-style-type: none;
+}
+header nav ul li a {
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+header nav ul li a:hover {
+  color: #CFCFFF;
+}
+header #menu-toggle:checked ~ nav {
+  transform: translateX(0);
+}
+header #menu-toggle:checked ~ label .line1 {
+  transform: rotate(-45deg) translate(-4.25px, 4.25px);
+}
+header #menu-toggle:checked ~ label .line2 {
+  opacity: 0;
+}
+header #menu-toggle:checked ~ label .line3 {
+  transform: rotate(45deg) translate(-4.25px, -4.25px);
+}
+
+@media (min-width: 950px) {
+  header .hamburger {
+    display: none;
+  }
+  header nav {
+    position: static;
+    transform: translateX(0);
+  }
+  header nav .header-footer {
+    display: none;
+  }
+  header nav ul {
+    margin-top: 0;
+    flex-direction: row;
+  }
+}
+main {
+  width: 1200px;
+  max-width: 95dvw;
+  margin: 20px auto 0 auto;
+}
+
+#catalogWrapper .game-list {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(250px, 1fr));
+  gap: 20px;
+}
+#catalogWrapper .game-list .game-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #000;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  #catalogWrapper .game-list {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  #catalogWrapper .game-list {
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+header, footer {
+  background-color: #0F172A;
+}
+
+footer {
+  margin-top: auto;
+  color: white;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=app.css.map */
