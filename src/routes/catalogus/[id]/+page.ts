@@ -1,5 +1,4 @@
 import { error } from '@sveltejs/kit';
-import logo from '$lib/images/GameCoverPlaceholder.jpg';
 export const ssr = false;
 
 export async function load({ fetch, params }) {
