@@ -115,12 +115,12 @@ main {
     grid-template-columns: repeat(3, minmax(250px, 1fr));
   }
 }
-#catalogGameForm {
+form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-#catalogGameForm button {
+form button {
   padding: 10px 20px;
   font-weight: bold;
 }
