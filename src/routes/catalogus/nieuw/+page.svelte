@@ -10,7 +10,7 @@
 	<p style="color: red; font-weight: bold;">{form.message}</p>
 {/if}
 
-<form id="catalogGameForm" method="POST">
+<form method="POST">
 	<div class="formGroup">
 		<label for="titel">Titel *</label><br />
 		<input

@@ -2,7 +2,9 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import '../app.css';
 
-	let { children } = $props();
+	import type { LayoutData } from './$types';
+
+	let { data, children }: { data: LayoutData; children: import('svelte').Snippet } = $props();
 </script>
 
 <svelte:head>
@@ -10,7 +12,7 @@
 </svelte:head>
 
 <header>
-	<h1>Portfolio Jeroen</h1>
+	<h1>MijnGameKast</h1>
 
 	<input type="checkbox" class="menu-toggle" id="menu-toggle">
 
@@ -24,9 +26,15 @@
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/catalogus">Catalogus</a></li>
-			<li><a href="/login">Login</a></li>
-			<li><a href="/registreren">registreren</a></li>
-			<li><a href="/profiel">Profiel</a></li>
+			{#if data.isIngelogd}
+				<li><a href="/profiel">Profiel</a></li>
+				<li><a href="/collecties">Collecties</a></li>
+			{:else}
+				<li><a href="/login">Login</a></li>
+				<li><a href="/registreren">registreren</a></li>
+			{/if}
+
+
 		</ul>
 	</nav>
 </header>
