@@ -86,9 +86,9 @@ header #menu-toggle:checked ~ label .line3 {
   }
 }
 main {
-  width: 1200px;
+  width: 950px;
   max-width: 95dvw;
-  margin: 20px auto 0 auto;
+  margin: 20px auto;
 }
 
 #catalogWrapper .game-list {
@@ -115,6 +115,29 @@ main {
     grid-template-columns: repeat(3, minmax(250px, 1fr));
   }
 }
+#catalogGameForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#catalogGameForm button {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+.formGroup input {
+  padding: 5px 10px;
+}
+.formGroup textarea {
+  padding: 5px 10px;
+  min-height: 100px;
+  resize: vertical;
+}
+
 * {
   margin: 0;
   padding: 0;

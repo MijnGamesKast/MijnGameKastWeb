@@ -1,0 +1,25 @@
+#catalogGameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+        padding: 10px 20px;
+        font-weight: bold;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+
+    input {
+        padding: 5px 10px;
+    }
+
+    textarea {
+        padding: 5px 10px;
+        min-height: 100px;
+        resize: vertical;
+    }
+}
