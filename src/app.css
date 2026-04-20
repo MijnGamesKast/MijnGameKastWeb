@@ -160,4 +160,109 @@ footer {
   padding: 10px;
 }
 
+.home-pagina {
+  padding: 3rem 1.5rem;
+}
+.home-pagina__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.home-pagina__content {
+  background: linear-gradient(135deg, #1f2937, #111827);
+  color: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+.home-pagina__bovenregel {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+}
+.home-pagina__titel {
+  margin: 0 0 1rem 0;
+  font-size: 2.4rem;
+  line-height: 1.2;
+}
+.home-pagina__tekst {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+  max-width: 650px;
+}
+.home-pagina__knoppen {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.home-pagina__knop {
+  display: inline-block;
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+.home-pagina__knop--primair {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+.home-pagina__knop--primair:hover {
+  background-color: #1d4ed8;
+}
+.home-pagina__knop--secundair {
+  background-color: #ffffff;
+  color: #111827;
+}
+.home-pagina__knop--secundair:hover {
+  background-color: #e5e7eb;
+}
+.home-pagina__kaart {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+.home-pagina__kaart-titel {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #111827;
+}
+.home-pagina__lijst {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #374151;
+  line-height: 1.8;
+}
+@media (max-width: 850px) {
+  .home-pagina__container {
+    grid-template-columns: 1fr;
+  }
+  .home-pagina__titel {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 500px) {
+  .home-pagina {
+    padding: 2rem 1rem;
+  }
+  .home-pagina__content, .home-pagina__kaart {
+    padding: 1.5rem;
+  }
+  .home-pagina__titel {
+    font-size: 1.7rem;
+  }
+}
+
 /*# sourceMappingURL=app.css.map */
