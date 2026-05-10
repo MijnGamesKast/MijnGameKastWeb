@@ -19,7 +19,7 @@ export const load: PageServerLoad = async ({ cookies, fetch }) => {
 
 	// Als er geen token is, wordt de gebruiker doorgestuurd naar de inlogpagina
 	if (!token) {
-		throw redirect(303, '/inloggen');
+		throw redirect(303, '/login');
 	}
 
 	let response: Response;
