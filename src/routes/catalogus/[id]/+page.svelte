@@ -3,7 +3,9 @@
 <!--</script>-->
 
 <script lang="ts">
-	type Game = {
+	import logo from '$lib/images/GameCoverPlaceholder.jpg';
+
+		type Game = {
 		id: number;
 		title: string;
 		description: string;
@@ -14,8 +16,27 @@
 
 <a href="/catalogus">← Terug</a>
 
-<h2>{data.game.title}</h2>
-<p>{data.game.description}</p>
+<div id="catalogGameWrapper">
+	<div class="catalogGameGroup">
+		<img src={logo} alt="Een placeholder image voor gamecover">
+	</div>
+
+	<div class="catalogGameGroup">
+		<h2>{data.game.title}</h2>
+		<p>{data.game.description}</p>
+	</div>
+
+	<div class="catalogGameGroup">
+		<h2>Platform</h2>
+		<p>-</p>
+	</div>
+
+	<div class="catalogGameGroup">
+		<h2>Genre</h2>
+		<p>-</p>
+	</div>
+</div>
+
 
 <!--<h2>Game detail</h2>-->
 <!--<p>ID: {data.gameId}</p>-->

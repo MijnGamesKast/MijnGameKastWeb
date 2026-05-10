@@ -67,3 +67,23 @@
         }
     }
 }
+
+#catalogGameWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .catalogGameGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: 1px solid #000;
+        padding: 15px;
+        margin: 10px;
+        border-radius: 12px;
+    }
+
+    img {
+        width: 85%;
+        margin: auto;
+    }
+}
