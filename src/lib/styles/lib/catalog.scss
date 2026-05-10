@@ -68,7 +68,31 @@
     }
 }
 
-#catalogGameWrapper {
+#CatalogGameWrapper {
+    .catalogGameOptions {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 12.5px;
+
+        button {
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+                background-color: #c82333;
+                border-color: #bd2130;
+            }
+        }
+    }
+
+    button {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        width: fit-content;
+    }
+}
+
+#catalogGameList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 

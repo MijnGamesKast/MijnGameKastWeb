@@ -36,6 +36,19 @@ header nav {
   display: flex;
   flex-direction: column;
 }
+header nav button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: "times new roman";
+  font-weight: 100;
+  transition: all 0.2s ease-in-out;
+}
+header nav button:hover {
+  color: #CFCFFF;
+}
 header nav ul {
   margin-top: 20px;
   display: flex;
@@ -43,6 +56,7 @@ header nav ul {
   flex-direction: column;
   background: transparent;
   text-align: center;
+  align-items: center;
 }
 header nav ul li {
   list-style-type: none;
@@ -147,11 +161,31 @@ main {
     grid-template-columns: repeat(3, minmax(250px, 1fr));
   }
 }
-#catalogGameWrapper {
+#CatalogGameWrapper .catalogGameOptions {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 12.5px;
+}
+#CatalogGameWrapper .catalogGameOptions button {
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#CatalogGameWrapper .catalogGameOptions button:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+#CatalogGameWrapper button {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  width: fit-content;
+}
+
+#catalogGameList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 }
-#catalogGameWrapper .catalogGameGroup {
+#catalogGameList .catalogGameGroup {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -160,7 +194,7 @@ main {
   margin: 10px;
   border-radius: 12px;
 }
-#catalogGameWrapper img {
+#catalogGameList img {
   width: 85%;
   margin: auto;
 }

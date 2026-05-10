@@ -35,10 +35,11 @@ type CreatedGame = {
 
 // Definieert de form actions voor deze pagina
 export const actions: Actions = {
-	default: async ({ request, fetch }) => {
+	default: async ({ request, fetch, cookies }) => {
 
 		// Haalt de form data op uit de POST request
 		const formData = await request.formData();
+		const token = cookies.get('token');
 
 		// Leest de waarden uit het formulier en haalt de spaties voor en achter eraf
 		const title = formData.get('title')?.toString().trim() ?? '';
@@ -64,7 +65,8 @@ export const actions: Actions = {
 			response = await fetch('https://localhost:7199/api/catalog', {
 				method: 'POST',
 				headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`
 				},
 				body: JSON.stringify({
 					title,
