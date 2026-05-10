@@ -29,6 +29,11 @@
 			{#if data.isIngelogd}
 				<li><a href="/profiel">Profiel</a></li>
 				<li><a href="/collecties">Collecties</a></li>
+				<li>
+					<form method="POST" action="/logout">
+						<button type="submit">Uitloggen</button>
+					</form>
+				</li>
 			{:else}
 				<li><a href="/login">Login</a></li>
 				<li><a href="/registreren">registreren</a></li>
