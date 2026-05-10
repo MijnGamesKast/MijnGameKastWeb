@@ -2,7 +2,17 @@
 // fail: geeft een fout terug aan de pagina
 // redirect: stuurt de gebruiker naar een andere pagina
 import { fail, redirect } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import { requireUser } from '$lib/server/auth';
+import type { Actions, PageServerLoad } from './$types';
+
+
+export const load: PageServerLoad = async ({ cookies, fetch}) => {
+	const gebruiker = await requireUser(cookies, fetch);
+
+	return {
+		gebruiker
+	};
+}
 
 // Type voor validatiefouten per veld vanuit de API
 type ValidationError = {
