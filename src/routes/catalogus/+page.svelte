@@ -4,11 +4,13 @@
 </script>
 
 <div id="catalogWrapper">
-	<h2>Catalogus pagina</h2>
-	<p>Op deze pagina komen alle games te staan van de catalogus</p>
-	<a href="/catalogus/nieuw">Game toevoegen</a>
-
-	<br>
+	<div class="catalogHeader">
+		<div>
+			<h2>Catalogus pagina</h2>
+			<p>Op deze pagina komen alle games te staan van de catalogus</p>
+		</div>
+		<a href="/catalogus/nieuw">Game toevoegen</a>
+	</div>
 
 	{#if data.catalog?.length}
 		<div class="game-list">
