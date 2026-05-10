@@ -23,3 +23,26 @@ form {
         resize: vertical;
     }
 }
+
+.formGroupPlatforms {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    .platformGroupHeader, .platformGroupOptions .platformOption {
+        border: 1px solid #000;
+        margin: 5px;
+        display: flex;
+        gap: 5px;
+        width: max-content;
+
+        input[type="checkbox"] {
+            margin: 5px;
+        }
+
+        label {
+            cursor: pointer;
+            display: block;
+            padding: 5px;
+        }
+    }
+}

@@ -138,6 +138,26 @@ form button {
   resize: vertical;
 }
 
+.formGroupPlatforms {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.formGroupPlatforms .platformGroupHeader, .formGroupPlatforms .platformGroupOptions .platformOption {
+  border: 1px solid #000;
+  margin: 5px;
+  display: flex;
+  gap: 5px;
+  width: max-content;
+}
+.formGroupPlatforms .platformGroupHeader input[type=checkbox], .formGroupPlatforms .platformGroupOptions .platformOption input[type=checkbox] {
+  margin: 5px;
+}
+.formGroupPlatforms .platformGroupHeader label, .formGroupPlatforms .platformGroupOptions .platformOption label {
+  cursor: pointer;
+  display: block;
+  padding: 5px;
+}
+
 * {
   margin: 0;
   padding: 0;
