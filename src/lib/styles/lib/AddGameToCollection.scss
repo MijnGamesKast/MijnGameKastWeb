@@ -1,0 +1,88 @@
+#AddGameToCollectionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .gameInformation {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .platforms, .genres {
+            display: flex;
+            gap: 10px;
+        }
+
+        a {
+            //padding: 10px 30px;
+            padding: 10px;
+            width: max-content;
+            border: 1px solid #000;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #000;
+            transition: all 0.3s ease-in-out;
+            font-weight: bold;
+
+             &:hover {
+                 background-color: #616161;
+                 color: #fff;
+             }
+        }
+    }
+
+    .chooseCollections {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .collections {
+            display: flex;
+            gap: 10px;
+
+            .collection {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                border: 1px solid #000;
+                padding: 10px;
+            }
+
+            .collectionButtons {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 10px;
+                align-items: center;
+                justify-content: center;
+
+                a, button {
+                    padding: 10px;
+                    width: max-content;
+                    border: 1px solid #000;
+                    border-radius: 5px;
+                    text-decoration: none;
+                    color: #000;
+                    transition: all 0.3s ease-in-out;
+                    cursor: pointer;
+                    background-color: transparent;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: #616161;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 950px) {
+    #AddGameToCollectionWrapper {
+        .chooseCollections {
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+}
+
