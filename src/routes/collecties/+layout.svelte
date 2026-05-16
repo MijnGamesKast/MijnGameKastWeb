@@ -1,19 +1,21 @@
 <script lang="ts">
-	let { children } = $props();
+	import type { PageData} from '../../../../.svelte-kit/types/src/routes/$types';
+
+	let { data, children } = $props();
 </script>
 
 <div id="CollectionWrapper">
 	<div class="collections card">
 		<h2>Collecties</h2>
-		<a href="/collecties/5" class="collection">
-			<span class="collectieNaam">Alle games</span> <span class="collectieEigenaar">Openbaar</span>
-		</a>
-		<a href="/collecties/6" class="collection">
-			<span class="collectieNaam">Backlog</span> <span class="collectieEigenaar">Privé</span>
-		</a>
-		<a href="/collecties/7" class="collection">
-			<span class="collectieNaam">Favorieten</span> <span class="collectieEigenaar">Privé</span>
-		</a>
+		{#if data.collecties.length === 0}
+			<p>Er zijn geen openbare collectie beschikbaar</p>
+		{:else}
+			{#each data.collecties as collectie}
+				<a href="/collecties/{collectie.id}" class="collection">
+					<span class="collectieNaam">{collectie.name}</span> <span class="collectieEigenaar">{#if collectie.isPublic == true}Openbaar{:else}Privé{/if}</span>
+				</a>
+			{/each}
+		{/if}
 	</div>
 
 
@@ -21,11 +23,3 @@
 		{@render children()}
 	</div>
 </div>
-
-<!--<div class="collections-public-wrapper">-->
-<!--	<div class="page-header">-->
-<!--		<h1>Openbare collecties</h1>-->
-<!--		<p>Ontdek collecties van andere gamers.</p>-->
-<!--	</div>-->
-<!--	-->
-<!--</div>-->
