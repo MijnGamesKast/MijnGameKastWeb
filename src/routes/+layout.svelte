@@ -26,9 +26,9 @@
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/catalogus">Catalogus</a></li>
+			<li><a href="/collecties">Collecties</a></li>
 			{#if data.isIngelogd}
 				<li><a href="/profiel">Profiel</a></li>
-				<li><a href="/collecties">Collecties</a></li>
 				<li>
 					<form method="POST" action="/logout">
 						<button type="submit">Uitloggen</button>

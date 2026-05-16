@@ -12,6 +12,10 @@
 	<h1>Collectie</h1>
 {/if}
 
+{#if data.message}
+	<p style="color: red; font-weight: bold;">{data.message}</p>
+{/if}
+
 {#if data.games.length === 0}
 	<p>Er zitten nog geen games in deze collectie.</p>
 {:else}

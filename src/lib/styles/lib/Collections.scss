@@ -1,0 +1,79 @@
+#CollectionWrapper {
+    display: grid;
+    gap: 20px;
+
+    .collections {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: fit-content;
+
+        .collection {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #000;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+
+            .collectieEigenaar {
+                border: 1px solid #000;
+                min-width: 100px;
+                padding: 5px;
+                text-align: center;
+            }
+        }
+    }
+
+    .collectionGames {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .collectionGame {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #000;
+            padding: 10px;
+
+            .gameInformation {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            img {
+                width: 100px;
+                height: auto;
+            }
+
+            a {
+                text-decoration: none;
+                color: #000;
+                border: 1px solid #000;
+                padding: 5px;
+                border-radius: 5px;
+                transition: all 0.25s ease-in-out;
+
+                &:hover {
+                    background-color: #616161;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 950px) {
+    #CollectionWrapper {
+        grid-template-columns: 2fr 3fr;
+    }
+}

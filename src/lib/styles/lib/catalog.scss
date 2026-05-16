@@ -1,61 +1,201 @@
 #catalogWrapper {
-    .catalogHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .catalogHero {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 20px;
+        flex-direction: column;
+        gap: 18px;
+        padding: 24px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #1f2937, #111827);
+        color: #fff;
 
-        a {
-            padding: 10px 30px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #000;
-            transition: all 0.25s ease-in-out;
-
-            &:hover {
-                background-color: #616161;
-                color: #fff;
-            }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
         }
+
+        p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+    }
+
+    .catalogToolbar {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .searchBox {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+
+        span {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+    }
+
+    .catalogCount {
+        font-weight: bold;
+        color: #374151;
     }
 
     .game-list {
         display: grid;
-        grid-template-columns: repeat(1, minmax(250px, 1fr));
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
 
-        .game-card {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 10px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
+    .game-card {
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        background-color: #fff;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+        transition:
+                transform 0.2s ease-in-out,
+                box-shadow 0.2s ease-in-out;
+        width: 95%;
+        margin: 0 auto;
 
-            a {
-                text-decoration: none;
-                color: #000;
-                border: 1px solid #000;
-                border-radius: 5px;
-                width: max-content;
-                padding: 5px;
-                transition: all 0.25s ease-in-out;
-
-                &:hover {
-                    background-color: #616161;
-                    color: #fff;
-                }
-            }
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
+
+        img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-bottom: 1px solid #e5e7eb;
+        }
+    }
+
+    .game-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+
+        h2 {
+            font-size: 1.15rem;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.5;
+        }
+    }
+
+    .tagList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        span {
+            padding: 5px 9px;
+            border: 1px solid #d1d5db;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            background-color: #f8fafc;
+        }
+    }
+
+    .game-card-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: auto;
+    }
+
+    .primaryButton,
+    .secondaryButton,
+    .filterButton {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        padding: 11px 16px;
+        border-radius: 10px;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .primaryButton {
+        background-color: #4f46e5;
+        color: #fff;
+        border: 1px solid #4f46e5;
+
+        &:hover {
+            background-color: #4338ca;
+        }
+    }
+
+    .secondaryButton,
+    .filterButton {
+        background-color: #fff;
+        color: #111827;
+        border: 1px solid #d1d5db;
+
+        &:hover {
+            background-color: #f3f4f6;
+        }
+    }
+
+    .textButton {
+        color: #4f46e5;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .emptyState {
+        padding: 30px;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        text-align: center;
+        background-color: #fff;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 700px) {
     #catalogWrapper {
+        .catalogHero {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .catalogToolbar {
+            flex-direction: row;
+            align-items: end;
+        }
+
+        .searchBox {
+            max-width: 600px;
+        }
+
         .game-list {
-            grid-template-columns: repeat(2, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
     }
 }
@@ -63,51 +203,7 @@
 @media (min-width: 1100px) {
     #catalogWrapper {
         .game-list {
-            grid-template-columns: repeat(3, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
         }
-    }
-}
-
-#CatalogGameWrapper {
-    .catalogGameOptions {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 12.5px;
-
-        button {
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            &:hover {
-                background-color: #c82333;
-                border-color: #bd2130;
-            }
-        }
-    }
-
-    button {
-        background-color: #dc3545;
-        border-color: #dc3545;
-        width: fit-content;
-    }
-}
-
-#catalogGameList {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    .catalogGameGroup {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        border: 1px solid #000;
-        padding: 15px;
-        margin: 10px;
-        border-radius: 12px;
-    }
-
-    img {
-        width: 85%;
-        margin: auto;
     }
 }

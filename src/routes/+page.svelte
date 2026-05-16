@@ -14,7 +14,7 @@
 				<a href="/catalogus" class="home-pagina__knop home-pagina__knop--primair">
 					Bekijk catalogus
 				</a>
-				<a href="/collecties" class="home-pagina__knop home-pagina__knop--secundair">
+				<a href="/profiel/collecties" class="home-pagina__knop home-pagina__knop--secundair">
 					Mijn collecties
 				</a>
 			</div>

@@ -1,0 +1,1 @@
+<h1>Kies een collectie</h1>

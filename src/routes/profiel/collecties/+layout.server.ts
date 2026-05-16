@@ -1,6 +1,6 @@
 // Importeert de redirect helper van SvelteKit
 import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from '../../../../.svelte-kit/types/src/routes';
 import { API_BASE_URL } from '$env/static/private';
 
 // Type voor één collectie
