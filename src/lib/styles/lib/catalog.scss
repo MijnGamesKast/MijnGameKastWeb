@@ -52,21 +52,8 @@
     }
 }
 
-@media (min-width: 768px) {
-    #catalogWrapper {
-        .game-list {
-            grid-template-columns: repeat(2, minmax(250px, 1fr));
-        }
-    }
-}
 
-@media (min-width: 1100px) {
-    #catalogWrapper {
-        .game-list {
-            grid-template-columns: repeat(3, minmax(250px, 1fr));
-        }
-    }
-}
+// Game Detail page
 
 #CatalogGameWrapper {
     .catalogGameOptions {
@@ -94,7 +81,7 @@
 
 #catalogGameList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 
     .catalogGameGroup {
         display: flex;
@@ -109,5 +96,35 @@
     img {
         width: 85%;
         margin: auto;
+    }
+
+    ul {
+        li {
+            list-style-position: inside;
+            font-size: 1.1rem;
+        }
+    }
+}
+
+
+// Media queries
+
+@media (min-width: 768px) {
+    #catalogWrapper {
+        .game-list {
+            grid-template-columns: repeat(2, minmax(250px, 1fr));
+        }
+    }
+
+    #catalogGameList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    #catalogWrapper {
+        .game-list {
+            grid-template-columns: repeat(3, minmax(250px, 1fr));
+        }
     }
 }

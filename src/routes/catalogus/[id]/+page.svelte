@@ -46,13 +46,22 @@
 		</div>
 
 		<div class="catalogGameGroup">
-			<h2>Platform</h2>
-			<p>-</p>
+			<h2>Platform(en)</h2>
+<!--			<p>Playstation 3, Playstation 4, Playstation 5, Xbox 360, Xbox One, Xbox Series S/X, PC</p>-->
+			<ul>
+				<li>Playstation 3</li>
+				<li>Playstation 4</li>
+				<li>Playstation 5</li>
+			</ul>
 		</div>
 
 		<div class="catalogGameGroup">
-			<h2>Genre</h2>
-			<p>-</p>
+			<h2>Genre(s)</h2>
+			<ul>
+				<li>Shooter</li>
+				<li>Action</li>
+				<li>Simulator</li>
+			</ul>
 		</div>
 
 
