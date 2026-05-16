@@ -1,0 +1,19 @@
+#loginRegisterWrapper {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+
+    form {
+        max-width: 95%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    #loginRegisterWrapper {
+        form {
+            max-width: 70%;
+        }
+    }
+}
