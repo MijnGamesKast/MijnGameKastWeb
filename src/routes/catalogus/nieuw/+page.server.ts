@@ -1,9 +1,7 @@
-// Importeert helper functies van SvelteKit
-// fail: geeft een fout terug aan de pagina
-// redirect: stuurt de gebruiker naar een andere pagina
 import { fail, redirect } from '@sveltejs/kit';
 import { requireUser } from '$lib/server/auth';
 import type { Actions, PageServerLoad } from './$types';
+import { API_BASE_URL } from '$env/static/private';
 
 
 export const load: PageServerLoad = async ({ cookies, fetch}) => {
@@ -62,7 +60,7 @@ export const actions: Actions = {
 
 		try {
 			// Stuurt een POST request naar de API met de ingevulde data
-			response = await fetch('https://localhost:7199/api/catalog', {
+			response = await fetch(`${API_BASE_URL}/api/catalog`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

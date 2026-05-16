@@ -1,6 +1,7 @@
 // Importeert de redirect helper van SvelteKit
 import { redirect } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import { API_BASE_URL } from '$env/static/private';
 
 // Type voor één collectie
 type Collection = {
@@ -26,7 +27,7 @@ export const load: PageServerLoad = async ({ cookies, fetch }) => {
 
 	try {
 		// Vraagt de collecties van de ingelogde gebruiker op
-		response = await fetch('https://localhost:7199/api/collection', {
+		response = await fetch(`${API_BASE_URL}/api/collection`, {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}

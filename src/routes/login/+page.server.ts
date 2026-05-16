@@ -3,6 +3,7 @@
 // redirect: stuurt de gebruiker naar een andere pagina
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
+import { API_BASE_URL } from '$env/static/private';
 
 // Type voor de response van de login API
 type AuthResult = {
@@ -41,7 +42,7 @@ export const actions: Actions = {
 
 		try {
 			// Stuurt een POST request naar de login API
-			response = await fetch('https://localhost:7199/api/auth/login', {
+			response = await fetch(`${API_BASE_URL}/api/auth/login`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
