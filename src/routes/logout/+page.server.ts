@@ -1,5 +1,6 @@
 import { redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
+import { API_BASE_URL } from '$env/static/private';
 
 export const actions: Actions = {
 	default: async ({ cookies, fetch }) => {
@@ -8,7 +9,7 @@ export const actions: Actions = {
 		// Alleen logout request sturen als er een token is
 		if (token) {
 			try {
-				await fetch('https://localhost:7199/api/auth/logout', {
+				await fetch(`${API_BASE_URL}/api/auth/logout`, {
 					method: 'POST',
 					headers: {
 						Authorization: `Bearer ${token}`

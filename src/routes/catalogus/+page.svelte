@@ -12,15 +12,15 @@
 		<a href="/catalogus/nieuw">Game toevoegen</a>
 	</div>
 
-	{#if data.catalog?.length}
+	{#if data.games?.length}
 		<div class="game-list">
-			{#each data.catalog as game}
+			{#each data.games as game}
 				<div class="game-card">
 					<img src={logo} alt="Een placeholder image voor gamecover">
 					<h3>{game.title}</h3>
 					<p>{game.description}</p>
-					<a href="/catalogus/{game.id}">Bekijk details</a>
-					<a href="/catalogus/{game.id}/toevoegen-aan-collectie">Toevoegen aan collectie</a>
+					<a href={`/catalogus/${game.id}`}>Bekijk details</a>
+					<a href={`/catalogus/${game.id}/toevoegen-aan-collectie`}>Toevoegen aan collectie</a>
 
 				</div>
 			{/each}

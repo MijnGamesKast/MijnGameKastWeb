@@ -1,6 +1,7 @@
 import { error, fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { requireModerator } from '$lib/server/auth';
+import { API_BASE_URL } from '$env/static/private';
 
 type Game = {
 	id: number;
@@ -9,7 +10,7 @@ type Game = {
 };
 
 export const load: PageServerLoad = async ({ fetch, params }) => {
-	const response = await fetch(`https://localhost:7199/api/catalog/${params.id}`);
+	const response = await fetch(`${API_BASE_URL}/api/catalog/${params.id}`);
 
 	if (!response.ok) {
 		error(response.status, `Game ophalen mislukt: ${response.status}`);
@@ -30,7 +31,7 @@ export const actions: Actions = {
 			redirect(303, '/login');
 		}
 
-		const response = await fetch(`https://localhost:7199/api/catalog/${params.id}`, {
+		const response = await fetch(`${API_BASE_URL}/api/catalog/${params.id}`, {
 			method: 'DELETE',
 			headers: {
 				Authorization: `Bearer ${token}`

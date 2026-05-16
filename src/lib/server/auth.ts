@@ -1,4 +1,5 @@
 import { redirect, type Cookies } from '@sveltejs/kit';
+import { API_BASE_URL } from '$env/static/private';
 
 type AuthMeResponse = {
 	success: boolean;
@@ -21,7 +22,7 @@ export async function getCurrentUser(cookies: Cookies, fetch: typeof globalThis.
 	let response: Response;
 
 	try {
-		response = await fetch('https://localhost:7199/api/auth/me', { // Check the token at the back-end
+		response = await fetch(`${API_BASE_URL}/api/auth/me`, { // Check the token at the back-end
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
