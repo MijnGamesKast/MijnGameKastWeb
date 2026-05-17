@@ -1,6 +1,3 @@
-// Importeert helper functies van SvelteKit
-// fail: geeft een fout terug aan de pagina
-// redirect: stuurt de gebruiker naar een andere pagina
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { API_BASE_URL } from '$env/static/private';

@@ -49,6 +49,6 @@
 
 		<p>Nog geen account? Registreer je <a href="/registreren">hier.</a></p>
 
-		<button type="submit">Inloggen</button>
+		<button class="customButton" type="submit">Inloggen</button>
 	</form>
 </div>
