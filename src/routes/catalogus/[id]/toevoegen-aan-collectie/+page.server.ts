@@ -17,7 +17,7 @@ type Collection = {
 	description: string;
 }
 
-export const load: PageServerLoad = async ({ params, url, cookies }) => {
+export const load: PageServerLoad = async ({ params, cookies, fetch }) => {
 	const gebruiker = await requireUser(cookies, fetch);
 	const token = cookies.get('token')
 	const gameId = params.id;
@@ -55,52 +55,65 @@ export const load: PageServerLoad = async ({ params, url, cookies }) => {
 
 export const actions: Actions = {
 	default: async ({ request, fetch, cookies, params }) => {
-		console.log("----------------------------------------------");
-		// Get the information to set a game in collection(s)
-		const formData = await request.formData();
-		const gameId = params.id;
-		const collections = formData
-			.getAll('collectionId[]')
-			.map((value) => value.toString());
+		// Check the user
+		const gebruiker = await requireUser(cookies, fetch);
 		const token = cookies.get('token');
-
-		// Als er geen token meer is
 		if (!token) {
 			throw redirect(303, '/login');
 		}
 
+
+		const formData = await request.formData();
+		const gameId = params.id;
+
+		const collections = formData
+			.getAll('collectionId[]')
+			.map((value) => value.toString());
+
 		// controleer of er een collectie is aangeklikt
 		if (collections.length === 0) {
-			console.log("Geen collectie geselecteerd");
 			return fail(400, {
 				message: "Selecteer een collectie"
 			});
 		}
 
-		let response: Response;
+		let toegevoegd = 0;
+		let alAanwezig = 0;
 
 		// /api/Collection/{collectionId}/games/{gameId}
 		for (const collectionId of collections) {
-			// console.log("CollectionId: " + collectionId);
-			try {
-				response = await fetch(`${API_BASE_URL}/api/collection/${collectionId}/games/${gameId}`, {
-					method: 'POST',
-					headers: {
-						Authorization: `Bearer ${token}`
-					}
-				});
-			} catch (error) {
-				console.error('Fout bij het toevoegen van het game aan de collectie:', error);
+			const response = await fetch(`${API_BASE_URL}/api/collection/${collectionId}/games/${gameId}`, {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${token}`
+				}
+			});
+
+			if (response.status === 409) {
+				alAanwezig++;
+				continue;
+			}
+
+			if (!response.ok) {
 				return fail(500, {
-					message: 'Er is een fout opgetreden bij het toevoegen van het game aan de collectie.'
+					message: 'Er is een fout opgetreden bij het toevoegen van de game aan de collectie.'
 				})
 			}
+
+			toegevoegd++;
+		}
+
+		if (toegevoegd == 0 && alAanwezig > 0) {
+			return fail(409, {
+				message: "Deze game staat al in de geselecteerde collectie(s)."
+			});
 		}
 
 		if (collections.length === 1) {
 			throw redirect(303, `/profiel/collecties/${collections[0]}`);
-		} else {
-			throw redirect(303, `/profiel/collecties/`);
 		}
+
+		throw redirect(303, `/profiel/collecties/`);
+
 	}
 }
