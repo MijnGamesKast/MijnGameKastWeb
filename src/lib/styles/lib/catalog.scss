@@ -207,3 +207,103 @@
         }
     }
 }
+
+
+#CatalogGameWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .catalogGameOptions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+
+        a {
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        form {
+            margin: 0;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: 1px solid #dc3545;
+            border-radius: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #c82333;
+            }
+        }
+    }
+
+    #catalogGameList {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+
+        .catalogGameGroup {
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            background-color: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            h2 {
+                font-size: 1.35rem;
+                color: #111827;
+            }
+
+            p {
+                color: #4b5563;
+                line-height: 1.6;
+            }
+
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 0;
+
+                li {
+                    list-style: none;
+                    padding: 6px 10px;
+                    border: 1px solid #d1d5db;
+                    border-radius: 999px;
+                    background-color: #f8fafc;
+                    font-size: 0.9rem;
+                }
+            }
+        }
+
+        img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #CatalogGameWrapper {
+        #catalogGameList {
+            grid-template-columns: 1.2fr 1fr;
+        }
+    }
+}
