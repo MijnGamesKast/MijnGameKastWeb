@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PageData} from '../../../../.svelte-kit/types/src/routes/$types';
 
 	let { data, children } = $props();
 </script>
@@ -12,7 +11,7 @@
 		{:else}
 			{#each data.collecties as collectie}
 				<a href="/collecties/{collectie.id}" class="collection">
-					<span class="collectieNaam">{collectie.name}</span> <span class="collectieEigenaar">{#if collectie.isPublic == true}Openbaar{:else}Privé{/if}</span>
+					<span class="collectieNaam">{collectie.name}</span> <span class="collectieEigenaar">{collectie.username}</span>
 				</a>
 			{/each}
 		{/if}

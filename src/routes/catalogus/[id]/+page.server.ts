@@ -7,6 +7,8 @@ type Game = {
 	id: number;
 	title: string;
 	description: string;
+	platforms?: { id: number; platformName: string; }[];
+	genres?: { id: number; genreName: string; }[];
 };
 
 export const load: PageServerLoad = async ({ fetch, params }) => {
@@ -17,6 +19,7 @@ export const load: PageServerLoad = async ({ fetch, params }) => {
 	}
 
 	const game: Game = await response.json();
+	console.log(game)
 
 	return { game };
 };

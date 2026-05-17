@@ -10,6 +10,11 @@
 	};
 
 	let { data }: { data: { games: Game[] } } = $props();
+
+	function truncateText(text: string, maxLength: number) {
+		if (text.length <= maxLength) return text;
+		return `${text.slice(0, maxLength)}...`;
+	}
 </script>
 
 <section id="catalogWrapper">
@@ -41,7 +46,7 @@
 
 					<div class="game-card-content">
 						<h2>{game.title}</h2>
-						<p>{game.description}</p>
+						<p>{truncateText(game.description, 120)}</p>
 
 						{#if game.platforms?.length}
 							<div class="tagList">

@@ -1,5 +1,5 @@
-import type { PageServerLoad} from '../../../.svelte-kit/types/src/routes';
-import { API_BASE_URL} from '$env/static/private';
+import type { LayoutServerLoad } from './$types';
+import { API_BASE_URL } from '$env/static/private';
 
 type Collection = {
 	id: number;
@@ -10,7 +10,11 @@ type Collection = {
 	isPublic: boolean;
 };
 
-export const load: PageServerLoad = async ({ cookies, fetch }) => {
+type CollectionWithUsername = Collection & {
+	username: string;
+};
+
+export const load: LayoutServerLoad = async ({ fetch }) => {
 	let response: Response;
 
 	try {
@@ -19,25 +23,46 @@ export const load: PageServerLoad = async ({ cookies, fetch }) => {
 		console.error(`Fout bij het ophalen van de publieke collecties: ${error}`);
 
 		return {
-			collecties: [] as Collection[],
-			message: "Kan geen verbinding maken met de API."
+			collecties: [] as CollectionWithUsername[],
+			message: 'Kan geen verbinding maken met de API.'
 		};
 	}
 
-	// Als de response niet goed is, geven we een lege lijst en foutmelding terug
 	if (!response.ok) {
 		return {
-			collecties: [] as Collection[],
+			collecties: [] as CollectionWithUsername[],
 			message: `Er ging iets mis bij het ophalen van collecties. Status: ${response.status}`
 		};
 	}
 
-	// Leest de collecties uit de response
 	const collecties: Collection[] = await response.json();
 
-	// Geeft de collecties terug aan de pagina
+	const collectiesMetUsername: CollectionWithUsername[] = await Promise.all(
+		collecties.map(async (collectie) => {
+			try {
+				const userResponse = await fetch(`${API_BASE_URL}/api/user/${collectie.userId}`);
+
+				const username = userResponse.ok
+					? await userResponse.text()
+					: 'Onbekende gebruiker';
+
+				return {
+					...collectie,
+					username
+				};
+			} catch (error) {
+				console.error(`Fout bij ophalen van gebruiker ${collectie.userId}:`, error);
+
+				return {
+					...collectie,
+					username: 'Onbekende gebruiker'
+				};
+			}
+		})
+	);
+
 	return {
-		collecties,
+		collecties: collectiesMetUsername,
 		message: ''
 	};
-}
+};
