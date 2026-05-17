@@ -1,18 +1,17 @@
 <script lang="ts">
-  	import type { PageData} from './$types';
-
-	let { data, children } = $props();
+  let { data, children } = $props();
 </script>
 
 <div id="CollectionWrapper">
 	<div class="collections card">
 		<h2>Collecties</h2>
+		<a class="customButton" href={`/profiel/collecties/nieuw`}>Nieuwe collectie maken</a>
 		{#if data.collecties.length === 0}
 			<p>Je hebt nog geen collecties</p>
 		{:else}
 			{#each data.collecties as collectie}
 				<a href="/profiel/collecties/{collectie.id}" class="collection">
-					<span class="collectieNaam">{collectie.name}</span> <span class="collectieEigenaar">{#if collectie.isPublic == true}Openbaar{:else}Privé{/if}</span>
+					<span class="collectieNaam">{collectie.name}</span> <span class="collectieEigenaar">{#if collectie.isPublic === true}Openbaar{:else}Privé{/if}</span>
 				</a>
 			{/each}
 		{/if}
