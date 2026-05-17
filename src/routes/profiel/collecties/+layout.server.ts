@@ -1,6 +1,6 @@
 // Importeert de redirect helper van SvelteKit
 import { redirect } from '@sveltejs/kit';
-import type { PageServerLoad } from '../../../../.svelte-kit/types/src/routes';
+import type { LayoutServerLoad  } from './$types';
 import { API_BASE_URL } from '$env/static/private';
 
 // Type voor één collectie
@@ -14,7 +14,7 @@ type Collection = {
 };
 
 // Laadt de gegevens voor de collectiespagina
-export const load: PageServerLoad = async ({ cookies, fetch }) => {
+export const load: LayoutServerLoad  = async ({ cookies, fetch }) => {
 	// Haalt de token op uit de cookie
 	const token = cookies.get('token');
 

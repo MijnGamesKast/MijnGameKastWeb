@@ -8,26 +8,23 @@
         flex-direction: column;
         gap: 10px;
 
+        .tagList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+
+            span {
+                padding: 5px 9px;
+                border: 1px solid #d1d5db;
+                border-radius: 999px;
+                font-size: 0.85rem;
+                background-color: #f8fafc;
+            }
+        }
+
         .platforms, .genres {
             display: flex;
             gap: 10px;
-        }
-
-        a {
-            //padding: 10px 30px;
-            padding: 10px;
-            width: max-content;
-            border: 1px solid #000;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #000;
-            transition: all 0.3s ease-in-out;
-            font-weight: bold;
-
-             &:hover {
-                 background-color: #616161;
-                 color: #fff;
-             }
         }
     }
 
@@ -54,24 +51,6 @@
                 gap: 10px;
                 align-items: center;
                 justify-content: center;
-
-                a, button {
-                    padding: 10px;
-                    width: max-content;
-                    border: 1px solid #000;
-                    border-radius: 5px;
-                    text-decoration: none;
-                    color: #000;
-                    transition: all 0.3s ease-in-out;
-                    cursor: pointer;
-                    background-color: transparent;
-                    font-weight: bold;
-
-                    &:hover {
-                        background-color: #616161;
-                        color: #fff;
-                    }
-                }
             }
         }
     }
