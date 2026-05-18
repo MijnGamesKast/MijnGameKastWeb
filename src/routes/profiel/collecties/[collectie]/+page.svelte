@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageData } from '../../../../../.svelte-kit/types/src/routes';
+	import type { PageData } from './$types';
 	import logo from '$lib/images/GameCoverPlaceholder.jpg';
 
 	let { data }: { data: PageData } = $props();
@@ -8,9 +8,14 @@
 {#if data.collectie}
 	<h1>{data.collectie.name}</h1>
 	<p>{data.collectie.description}</p>
+	<div>
+		<a class="customButton" href={`/profiel/collecties/${data.collectie.id}/wijzigen`}>Wijzigen</a>
+	</div>
 {:else}
 	<h1>Collectie</h1>
 {/if}
+
+
 
 {#if data.message}
 	<p style="color: red; font-weight: bold;">{data.message}</p>
