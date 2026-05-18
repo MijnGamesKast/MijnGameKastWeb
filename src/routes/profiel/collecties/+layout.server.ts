@@ -49,7 +49,7 @@ export const load: LayoutServerLoad  = async ({ cookies, fetch }) => {
 		cookies.delete('email', { path: '/' });
 		cookies.delete('userId', { path: '/' });
 
-		throw redirect(303, '/inloggen');
+		throw redirect(303, '/login');
 	}
 
 	// Als de response niet goed is, geven we een lege lijst en foutmelding terug

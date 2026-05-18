@@ -1,7 +1,7 @@
 // Importeert de redirect helper van SvelteKit
 import { redirect } from '@sveltejs/kit';
 // import type { PageServerLoad } from '.svelte-kit/types/src/routes';
-import type { PageServerLoad } from '../../../../../.svelte-kit/types/src/routes';
+import type { PageServerLoad } from './$types';
 import { API_BASE_URL } from '$env/static/private';
 
 // Type voor één collectie
@@ -31,7 +31,7 @@ export const load: PageServerLoad = async ({ cookies, fetch, params }) => {
 
 	// Als er geen token is, wordt de gebruiker doorgestuurd naar de inlogpagina
 	if (!token) {
-		throw redirect(303, '/inloggen');
+		throw redirect(303, '/login');
 	}
 
 	// Als het collectie id geen geldig getal is, sturen we terug naar het overzicht
@@ -74,7 +74,7 @@ export const load: PageServerLoad = async ({ cookies, fetch, params }) => {
 		cookies.delete('email', { path: '/' });
 		cookies.delete('userId', { path: '/' });
 
-		throw redirect(303, '/inloggen');
+		throw redirect(303, '/login');
 	}
 
 	// Als één van de responses niet goed is, geven we een foutmelding terug
