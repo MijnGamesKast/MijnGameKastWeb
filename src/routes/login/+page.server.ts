@@ -147,6 +147,6 @@ export const actions: Actions = {
 		}
 
 		// Stuurt de gebruiker na succesvol inloggen door naar de homepagina
-		throw redirect(303, '/');
+		throw redirect(303, '/profiel');
 	}
 };
