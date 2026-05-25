@@ -1,0 +1,42 @@
+name: playwright.yml
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - "Feature/**"
+      - "Hotfix/**"
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      API_BASE_URL: ${{ secrets.API_BASE_URL }}
+      TEST_GAMER_EMAIL: ${{ secrets.TEST_GAMER_EMAIL }}
+      TEST_GAMER_PASSWORD: ${{ secrets.TEST_GAMER_PASSWORD }}
+      TEST_MODERATOR_EMAIL: ${{ secrets.TEST_MODERATOR_EMAIL }}
+      TEST_MODERATOR_PASSWORD: ${{ secrets.TEST_MODERATOR_PASSWORD }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npm run test:e2e
