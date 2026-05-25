@@ -41,5 +41,20 @@
 			<p>Bekijk collecties die door andere gamers gedeeld zijn.</p>
 			<span>Bekijk openbaar →</span>
 		</a>
+
+		{#if gebruiker?.role === 1}
+			<a class="profileAction card" href="/moderatie/genre">
+				<h2>Genre Beheer</h2>
+				<p>Beheer de genres voor de catalogus</p>
+				<span>Ga naar genre beheerpagina →</span>
+			</a>
+
+			<a class="profileAction card" href="/moderatie/platform">
+				<h2>Platform Beheer</h2>
+				<p>Beheer de platformen voor de catalogus</p>
+				<span>Ga naar platform beheerpagina →</span>
+			</a>
+
+		{/if}
 	</div>
 </section>
