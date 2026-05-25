@@ -25,3 +25,5 @@ vite.config.ts.timestamp-*
 # Editor/IDE files
 .idea
 .vscode
+# Playwright
+test-results
