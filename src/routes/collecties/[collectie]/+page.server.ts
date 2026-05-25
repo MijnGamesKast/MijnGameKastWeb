@@ -1,4 +1,4 @@
-import type { PageServerLoad } from '../../../../../.svelte-kit/types/src/routes';
+import type { PageServerLoad } from './$types';
 import { API_BASE_URL } from '$env/static/private';
 
 // Type voor één collectie
