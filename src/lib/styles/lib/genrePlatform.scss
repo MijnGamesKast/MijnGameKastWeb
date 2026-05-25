@@ -1,0 +1,82 @@
+#GenrePlatformWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    .genrePlatforms,
+    .genrePlatformContent {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .genrePlatforms {
+        max-height: 420px;
+        overflow: hidden;
+    }
+
+    .genrePlatformHeader {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .genrePlatformList {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    .genrePlatformList::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .genrePlatformList::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 999px;
+    }
+
+    .genrePlatformList::-webkit-scrollbar-thumb {
+        background: #94a3b8;
+        border-radius: 999px;
+    }
+
+    .genrePlatform {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid #d1d5db;
+        padding: 12px;
+        border-radius: 10px;
+        background-color: #fff;
+
+        p {
+            font-weight: bold;
+            word-break: break-word;
+        }
+    }
+
+    .customButtonSmall {
+        padding: 7px 10px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 950px) {
+    #GenrePlatformWrapper {
+        grid-template-columns: 2fr 3fr;
+        align-items: start;
+
+        .genrePlatforms {
+            position: sticky;
+            top: 80px;
+            max-height: calc(100dvh - 200px);
+        }
+    }
+}
