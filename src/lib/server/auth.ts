@@ -62,7 +62,7 @@ export async function requireModerator(cookies: Cookies, fetch: typeof globalThi
 	const gebruiker = await requireUser(cookies, fetch);
 
 	if (gebruiker.role !== 1) {
-		redirect(303, '/catalogus');
+		redirect(303, '/');
 	}
 
 	return gebruiker;
