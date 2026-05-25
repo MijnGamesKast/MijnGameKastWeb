@@ -4,7 +4,7 @@
 
 <div id="CollectionWrapper">
 	<div class="collections card">
-		<h2>Collecties</h2>
+		<h2>Mijn collecties</h2>
 		<a class="customButton" href={`/profiel/collecties/nieuw`}>Nieuwe collectie maken</a>
 		{#if data.collecties.length === 0}
 			<p>Je hebt nog geen collecties</p>
